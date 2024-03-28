@@ -16,4 +16,12 @@ export class PublishersService {
   findOne(id: string) {
     return this.publishersModel.findById(id).exec();
   }
+
+  async searchPublishers(term: string): Promise<Publisher[]> {
+    return this.publishersModel
+      .find({
+        publisher_name: new RegExp(term, 'i'),
+      })
+      .exec();
+  }
 }

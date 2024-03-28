@@ -7,7 +7,7 @@ export class Publisher extends Document {
   publisher_id: number;
 
   @Prop()
-  name: string;
+  publisher_name: string;
 }
 
 export const Publishersschema = SchemaFactory.createForClass(Publisher);

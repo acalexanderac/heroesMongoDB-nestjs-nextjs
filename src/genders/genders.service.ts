@@ -14,4 +14,12 @@ export class GendersService {
   findOne(id: string) {
     return this.genderModel.findById(id).exec();
   }
+
+  async searchGenders(term: string): Promise<Gender[]> {
+    return this.genderModel
+      .find({
+        name: new RegExp(term, 'i'),
+      })
+      .exec();
+  }
 }

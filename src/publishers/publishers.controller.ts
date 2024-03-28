@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Query, Param } from '@nestjs/common';
 import { PublishersService } from './publishers.service';
 
 @Controller('publishers')
@@ -8,6 +8,11 @@ export class PublishersController {
   @Get()
   findAll() {
     return this.publishersService.findAll();
+  }
+
+  @Get('search')
+  search(@Query('term') term: string) {
+    return this.publishersService.searchPublishers(term);
   }
 
   @Get(':id')

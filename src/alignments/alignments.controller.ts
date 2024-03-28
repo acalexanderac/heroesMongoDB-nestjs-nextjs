@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AlignmentsService } from './alignments.service';
 
 @Controller('alignments')
@@ -8,6 +8,11 @@ export class AlignmentsController {
   @Get()
   findAll() {
     return this.alignmentsService.findAll();
+  }
+
+  @Get('search')
+  search(@Query('term') term: string) {
+    return this.alignmentsService.searchAlignments(term);
   }
 
   @Get(':id')

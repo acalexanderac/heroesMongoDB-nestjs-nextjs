@@ -16,4 +16,12 @@ export class AlignmentsService {
   findOne(id: string) {
     return this.alignmentModel.findById(id).exec();
   }
+
+  async searchAlignments(term: string): Promise<Alignment[]> {
+    return this.alignmentModel
+      .find({
+        name: new RegExp(term, 'i'),
+      })
+      .exec();
+  }
 }
