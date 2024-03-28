@@ -1,26 +1,32 @@
 import { Injectable } from '@nestjs/common';
 import { CreateHeroInformationDto } from './dto/create-hero_information.dto';
 import { UpdateHeroInformationDto } from './dto/update-hero_information.dto';
-
+import { InjectModel } from '@nestjs/mongoose';
+import { Hero } from './schemas/hero_informations.schema';
+import { Model } from 'mongoose';
 @Injectable()
 export class HeroInformationsService {
-  create(createHeroInformationDto: CreateHeroInformationDto) {
-    return 'This action adds a new heroInformation';
+  constructor(@InjectModel(Hero.name) private heroModel: Model<Hero>) {}
+
+  async create(createHeroInformationDto: CreateHeroInformationDto) {
+    const createdHero = new this.heroModel(createHeroInformationDto);
+    return await createdHero.save();
   }
 
-  findAll() {
-    return `This action returns all heroInformations`;
+  async findAll() {
+    return await this.heroModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} heroInformation`;
+  async findOne(id: string) {
+    return await this.heroModel.findById(id).exec();
+  }
+  async update(id: string, updateHeroInformationDto: UpdateHeroInformationDto) {
+    return await this.heroModel
+      .findByIdAndUpdate(id, updateHeroInformationDto, { new: true })
+      .exec();
   }
 
-  update(id: number, updateHeroInformationDto: UpdateHeroInformationDto) {
-    return `This action updates a #${id} heroInformation`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} heroInformation`;
+  async remove(id: string) {
+    return await this.heroModel.findByIdAndDelete(id).exec();
   }
 }
