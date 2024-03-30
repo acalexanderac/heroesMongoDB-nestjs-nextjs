@@ -1,6 +1,8 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AlignmentsService } from './alignments.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('alignments')
 @Controller('alignments')
 export class AlignmentsController {
   constructor(private readonly alignmentsService: AlignmentsService) {}
