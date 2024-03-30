@@ -1,73 +1,69 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API REST NestJS MongoDB SuperHeroes 🦸‍♂️
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## API Endpoints ⭐
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+#### hero-informations
 
-## Description
+- `POST /hero-informations`: Create a new hero
+- `GET /hero-informations`: Get all heroes
+- `GET /hero-informations/search`: Search for heroes
+- `GET /hero-informations/{id}`: Get a specific hero by ID
+- `PATCH /hero-informations/{id}`: Update a specific hero by ID
+- `DELETE /hero-informations/{id}`: Delete a specific hero by ID
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+#### alignments
 
-## Installation
+- `GET /alignments`: Get all alignments
+- `GET /alignments/search`: Search for alignments
+- `GET /alignments/{id}`: Get a specific alignment by ID
+
+#### genders
+
+- `GET /genders`: Get all genders
+- `GET /genders/search`: Search for genders
+- `GET /genders/{id}`: Get a specific gender by ID
+
+#### publishers
+
+- `GET /publishers`: Get all publishers
+- `GET /publishers/search`: Search for publishers
+- `GET /publishers/{id}`: Get a specific publisher by ID
+
+## Installation 🛸
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+### Running the App
+
+#### development
 
 ```bash
-# development
 $ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+### watch mode
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+$ npm run start:dev
 ```
 
-## Support
+## Documentation 📖
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+The API documentation is generated using Swagger, a tool for designing, building, and documenting RESTful APIs. You can access the documentation at the following URL when your server is running:
 
-## Stay in touch
+http://localhost:3000/documentacion
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## How to Use the Documentation 🚀
 
-## License
+Swagger provides an interactive interface for exploring the API. Each endpoint is listed along with its HTTP method, expected parameters, and response format. You can even try out the API directly from the Swagger interface.
 
-Nest is [MIT licensed](LICENSE).
+#### To use Swagger:
+
+    1. Start your server.
+    2. Open a web browser and navigate to `http://localhost:3000/documentacion`.
+    3. Click on an endpoint to expand it and see more details.
+    4. To try out an endpoint, click the "Try it out" button, fill in any required parameters, and click "Execute".
+
+Remember to replace `localhost:3000` with your actual server address if you're not running the server locally.
